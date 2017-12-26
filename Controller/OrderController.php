@@ -22,14 +22,15 @@ class OrderController extends Controller
     {
         $orderManager = $this->get('kitpages_shop.orderManager');
         $logger = $this->get('logger');
-        $logger->debug("create order, user=".$this->get('security.context')->getToken()->getUser());
+        $logger->debug("create order, user=".$this->getUser()->getUsername());
         // create order from cart
         $order = $orderManager->createOrder();
         $order->setLocale($this->get('request')->getLocale());
+        
         if(
-            $this->get('security.context')->isGranted('ROLE_SHOP_USER')
+            $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')
         ) {
-            $order->setUsername($this->get('security.context')->getToken()->getUsername());
+            $order->setUsername($this->getUser()->getUsername());
         }
         // persist order
         $em = $this->getDoctrine()->getManager();
@@ -56,7 +57,7 @@ class OrderController extends Controller
     {
 
         if (
-            ! $this->get('security.context')->isGranted('ROLE_SHOP_USER')
+            ! $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')
         ) {
             return $this->forward('KitpagesShopBundle:Order:forbidden', array(
                 'kitpages_target' => $this->generateUrl(
@@ -72,7 +73,7 @@ class OrderController extends Controller
 
         if (
             ($order->getUsername() != null) &&
-            ($order->getUsername() != $this->get('security.context')->getToken()->getUsername())
+            ($order->getUsername() != $this->getUser()->getUsername())
         ) {
             return new Response('You are not allowed to see this order');
         }
@@ -86,7 +87,7 @@ class OrderController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             if ($order->getUsername() == null) {
-                $order->setUsername($this->get('security.context')->getToken()->getUsername());
+                $order->setUsername($this->getUser()->getUsername());
             }
             if ($invoiceUser instanceof OrderUser) {
                 $order->setInvoiceUser($invoiceUser);
@@ -103,7 +104,7 @@ class OrderController extends Controller
 
             // complete order
             $orderHistory = new OrderHistory();
-            $orderHistory->setUsername($this->get('security.context')->getToken()->getUsername());
+            $orderHistory->setUsername($this->getUser()->getUsername());
             $orderHistory->setOrder($order);
             $orderHistory->setState(OrderHistory::STATE_READY_TO_PAY);
             $orderHistory->setNote("order complete and displayed to the user");

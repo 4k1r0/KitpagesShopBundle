@@ -17,11 +17,10 @@ class InvoiceController extends Controller
 {
     public function invoiceDisplayAction($orderId)
     {
-        if (
-            ! $this->get('security.context')->isGranted('ROLE_SHOP_USER')
-        ) {
-            return new Response('The user should be authenticated on this page');
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')) {
+            throw $this->createAccessDeniedException();
         }
+        
         $doctrine = $this->get("doctrine");
         $em = $doctrine->getManager();
         $repo = $em->getRepository("KitpagesShopBundle:Order");
@@ -33,11 +32,10 @@ class InvoiceController extends Controller
             throw new \Exception("InvoiceController : order is not payed for orderId=".$orderId);
         }
         if (
-            ! $this->get('security.context')->isGranted('ROLE_SHOP_ADMIN') &&
-            $order->getUsername() != $this->get('security.context')->getToken()->getUsername()
+            ! $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_ADMIN') &&
+            $order->getUsername() != $this->getUser()->getUsername()
         ) {
-            $response = new Response('You are not allowed to see this order', '403');
-            return $response;
+            throw $this->createAccessDeniedException();
         }
         $invoice = $order->getInvoice();
         $response = new Response($invoice->getContentHtml());

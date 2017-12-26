@@ -4,7 +4,7 @@ namespace Kitpages\ShopBundle\Model\Payment;
 use Kitpages\ShopBundle\Entity\Order;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Form\FormFactory;
-use Symfony\Component\Validator\Constraints\True;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class PaymentManager
 {
@@ -49,7 +49,7 @@ class PaymentManager
                 'value' => 'yes',
                 'label' => ' ',
                 'mapped' => false,
-                'constraints' => new True()
+                'constraints' => new IsTrue()
             )
         );
         return $form;
