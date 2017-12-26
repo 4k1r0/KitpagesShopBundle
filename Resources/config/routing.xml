@@ -4,40 +4,40 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="KitpagesShopBundle_cart_display" pattern="/cart/display">
+    <route id="KitpagesShopBundle_cart_display" path="/cart/display">
         <default key="_controller">KitpagesShopBundle:Cart:displayCart</default>
     </route>
 
-    <route id="KitpagesShopBundle_cart_deleteLine" pattern="/cart/deleteLine/{lineId}">
+    <route id="KitpagesShopBundle_cart_deleteLine" path="/cart/deleteLine/{lineId}">
         <default key="_controller">KitpagesShopBundle:Cart:deleteLine</default>
     </route>
 
     <!-- order -->
-    <route id="KitpagesShopBundle_order_create" pattern="/order/create">
+    <route id="KitpagesShopBundle_order_create" path="/order/create">
         <default key="_controller">KitpagesShopBundle:Order:create</default>
     </route>
-    <route id="KitpagesShopBundle_order_terms" pattern="/order/terms">
+    <route id="KitpagesShopBundle_order_terms" path="/order/terms">
         <default key="_controller">KitpagesShopBundle:Order:terms</default>
     </route>
 
-    <route id="KitpagesShopBundle_invoice_invoiceDisplay" pattern="/invoice/display/{orderId}">
+    <route id="KitpagesShopBundle_invoice_invoiceDisplay" path="/invoice/display/{orderId}">
         <default key="_controller">KitpagesShopBundle:Invoice:invoiceDisplay</default>
     </route>
 
-    <route id="KitpagesShopBundle_order_displayOrder" pattern="/order/display/{orderId}">
+    <route id="KitpagesShopBundle_order_displayOrder" path="/order/display/{orderId}">
         <default key="_controller">KitpagesShopBundle:Order:displayOrder</default>
     </route>
 
-    <route id="KitpagesShopBundle_order_forbidden" pattern="/order/forbidden/{orderId}">
+    <route id="KitpagesShopBundle_order_forbidden" path="/order/forbidden/{orderId}">
         <default key="_controller">KitpagesShopBundle:Order:displayOrder</default>
     </route>
 
     <!-- payment -->
-    <route id="KitpagesShopBundle_payment_complete" pattern="/payment/{orderId}/complete">
+    <route id="KitpagesShopBundle_payment_complete" path="/payment/{orderId}/complete">
         <default key="_controller">KitpagesShopBundle:Payment:complete</default>
     </route>
 
-    <route id="KitpagesShopBundle_payment_cancel" pattern="/payment/{orderId}/cancel">
+    <route id="KitpagesShopBundle_payment_cancel" path="/payment/{orderId}/cancel">
         <default key="_controller">KitpagesShopBundle:Payment:cancel</default>
     </route>
 

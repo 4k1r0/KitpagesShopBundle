@@ -4,16 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="KitpagesShopBundle_admin_orderList" pattern="/orderList">
+    <route id="KitpagesShopBundle_admin_orderList" path="/orderList">
         <default key="_controller">KitpagesShopBundle:Admin:orderList</default>
     </route>
 
-    <route id="KitpagesShopBundle_admin_orderHistory" pattern="/orderHistory/{id}">
+    <route id="KitpagesShopBundle_admin_orderHistory" path="/orderHistory/{id}">
         <default key="_controller">KitpagesShopBundle:Admin:orderHistory</default>
         <requirement key="id">\d+</requirement>
     </route>
 
-    <route id="KitpagesShopBundle_admin_statistics" pattern="/stats">
+    <route id="KitpagesShopBundle_admin_statistics" path="/stats">
         <default key="_controller">KitpagesShopBundle:Statistics:index</default>
     </route>
 

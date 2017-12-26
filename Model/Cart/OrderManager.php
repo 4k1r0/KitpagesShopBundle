@@ -18,9 +18,9 @@ use Kitpages\ShopBundle\Model\Discount\DiscountInterface;
 use Kitano\PaymentBundle\Event\PaymentEvent;
 use Kitano\PaymentBundle\Entity\Transaction;
 
+use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\HttpFoundation\Session;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Templating\EngineInterface;
 
@@ -41,7 +41,7 @@ class OrderManager
 
     public function __construct(
         Registry $doctrine,
-        LoggerInterface $logger,
+        Logger $logger,
         CartManagerInterface $cartManager,
         $isCartIncludingVat,
         EngineInterface $templating,
@@ -58,7 +58,7 @@ class OrderManager
 
 
     /**
-     * @param string username ($this->get('security.context')->getToken()->getUsername();)
+     * @param string username ($this->get('security.token_storage')->getUsername();)
      * @param OrderUser|null $invoiceUser
      * @param OrderUser|null $shippingUser
      * @return Order $order

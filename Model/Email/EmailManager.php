@@ -13,9 +13,9 @@ use Kitpages\ShopBundle\KitpagesShopEvents;
 use Kitano\PaymentBundle\Event\PaymentEvent;
 use Kitano\PaymentBundle\Entity\Transaction;
 
+use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\HttpFoundation\Session;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Templating\EngineInterface;
 
@@ -44,7 +44,7 @@ class EmailManager
 
     public function __construct(
         Registry $doctrine,
-        LoggerInterface $logger,
+        Logger $logger,
         \Swift_Mailer $mailer,
         EngineInterface $templating,
         EventDispatcherInterface $dispatcher,
