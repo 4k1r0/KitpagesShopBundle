@@ -1,7 +1,7 @@
 Kitpages Shop Bundle
 ====================
 
-This bundle is used to create a shop with symfony2.5.
+This bundle is used to create a shop with symfony 3.3.
 
 This is a beta version.
 
@@ -18,8 +18,6 @@ done to integrate existing catalog or discount system.
 State of the project
 ====================
 In beta state.
-
-Stats will arrive soon
 
 Features
 ========
