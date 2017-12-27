@@ -27,10 +27,9 @@
     },
 
     "autoload": {
-        "psr-0": {
-            "Kitpages\\ShopBundle": ""
+        "psr-4": {
+            "Kitpages\\ShopBundle\\": ""
         }
     },
-    "target-dir": "Kitpages/ShopBundle",
     "minimum-stability": "dev"
 }

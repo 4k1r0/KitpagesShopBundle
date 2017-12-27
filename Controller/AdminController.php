@@ -8,6 +8,8 @@ use Kitpages\ShopBundle\Entity\Order;
 use Kitpages\ShopBundle\Entity\OrderHistory;
 use Kitpages\ShopBundle\Entity\OrderUser;
 use Kitpages\ShopBundle\Form\FilterForm;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends Controller
@@ -64,7 +66,7 @@ class AdminController extends Controller
         $builder = $this->createFormBuilder(null, array('csrf_protection'=>false));
         $builder->add(
             'filter',
-            'text',
+            TextType::class,
             array(
                 'required' => false
             )
@@ -72,7 +74,7 @@ class AdminController extends Controller
         foreach($filterCheckBoxAllow as $key => $filterCheckBox) {
             $builder->add(
                 $key,
-                'choice',
+                ChoiceType::class,
                 array(
                     'label' => $filterCheckBox['label'],
                     'choices' => $filterCheckBox['value'],
@@ -181,7 +183,7 @@ class AdminController extends Controller
 
         // init paginator
         $paginator = new Paginator();
-        $paginator->setCurrentPage( $this->get('request')->query->get('news_page', 1) );
+        $paginator->setCurrentPage( $request->get('news_page', 1) );
         $paginator->setItemCountPerPage( 20 );
         $paginator->setUrlTemplate(
             $this->generateUrl(

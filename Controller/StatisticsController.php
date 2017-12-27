@@ -7,6 +7,7 @@ use Kitpages\ShopBundle\Model\Paginator;
 use Kitpages\ShopBundle\Entity\Order;
 use Kitpages\ShopBundle\Entity\OrderHistory;
 use Kitpages\ShopBundle\Entity\OrderUser;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 
 class StatisticsController extends Controller
@@ -22,12 +23,12 @@ class StatisticsController extends Controller
         $builder = $this->createFormBuilder(null);
         $builder->add(
             'date',
-            'date',
+            DateType::class,
             array(
                 'input'  => 'timestamp',
                 'widget' => 'choice',
                 'data' => time(),
-                'format' => 'YYYY-MMMM-dd',
+                'format' => 'yyyy-MM-dd',
             )
         );
         // get form
