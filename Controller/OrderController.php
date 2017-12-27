@@ -18,14 +18,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OrderController extends Controller
 {
-    public function createAction()
+    public function createAction(Request $request)
     {
         $orderManager = $this->get('kitpages_shop.orderManager');
         $logger = $this->get('logger');
         $logger->debug("create order, user=".$this->getUser()->getUsername());
         // create order from cart
         $order = $orderManager->createOrder();
-        $order->setLocale($this->get('request')->getLocale());
+        $order->setLocale($request->getLocale());
         
         if(
             $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')

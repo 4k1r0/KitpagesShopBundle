@@ -8,6 +8,7 @@ use Kitpages\ShopBundle\Entity\Order;
 use Kitpages\ShopBundle\Entity\OrderHistory;
 use Kitpages\ShopBundle\Entity\OrderUser;
 use Kitpages\ShopBundle\Form\FilterForm;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends Controller
 {
@@ -28,7 +29,7 @@ class AdminController extends Controller
      * @param none
      * @return \Symfony\Bundle\FrameworkBundle\Controller\Response
      */
-    public function orderListAction()
+    public function orderListAction(Request $request)
     {
 
 
@@ -52,8 +53,6 @@ class AdminController extends Controller
                 )
             )
         );
-
-        $request = $this->get('request');
 
         $conn = $this->get('database_connection');
 
@@ -90,7 +89,6 @@ class AdminController extends Controller
         $queryWhereString = '';
         $parameterList = array();
         if ($request->getMethod() == 'POST') {
-            $form->bindRequest($request);
             if($form->isValid()) {
                 $dataForm = $request->get('form');
                 $filterSearch = trim($dataForm['filter']);

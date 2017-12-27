@@ -7,6 +7,7 @@ use Kitpages\ShopBundle\Model\Paginator;
 use Kitpages\ShopBundle\Entity\Order;
 use Kitpages\ShopBundle\Entity\OrderHistory;
 use Kitpages\ShopBundle\Entity\OrderUser;
+use Symfony\Component\HttpFoundation\Request;
 
 class StatisticsController extends Controller
 {
@@ -15,10 +16,8 @@ class StatisticsController extends Controller
      * @param none
      * @return \Symfony\Bundle\FrameworkBundle\Controller\Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-
-        $request = $this->get('request');
         // build basic form
         $builder = $this->createFormBuilder(null);
         $builder->add(
@@ -39,9 +38,7 @@ class StatisticsController extends Controller
         $year = $date->format('Y');
         $month = $date->format('m');
 
-        $request = $this->get('request');
         if ($request->getMethod() == 'POST') {
-             $form->bindRequest($request);
 
              if ($form->isValid()) {
                  $dataForm = $request->request->get('form');
