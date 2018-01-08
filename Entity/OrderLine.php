@@ -60,17 +60,18 @@ class OrderLine
     private $id;
 
     /**
-     * @var Kitpages\ShopBundle\Entity\Order
+     * @var \Kitpages\ShopBundle\Entity\Order
      */
     private $order;
     
-    
+    /**
+     * Invoice constructor.
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }
-
 
     /**
      * Set quantity

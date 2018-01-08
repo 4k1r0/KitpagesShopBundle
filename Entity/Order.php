@@ -27,7 +27,7 @@ class Order
     }
     
     /**
-     * @var JMS\Payment\CoreBundle\Entity\PaymentInstruction
+     * @var \JMS\Payment\CoreBundle\Entity\PaymentInstruction
      */
     private $paymentInstruction;
     
@@ -72,27 +72,27 @@ class Order
     private $id;
     
     /**
-     * @var Kitpages\ShopBundle\Entity\Invoice
+     * @var \Kitpages\ShopBundle\Entity\Invoice
      */
     private $invoice;
     
     /**
-     * @var Kitpages\ShopBundle\Entity\OrderUser
+     * @var \Kitpages\ShopBundle\Entity\OrderUser
      */
     private $invoiceUser;
     
     /**
-     * @var Kitpages\ShopBundle\Entity\OrderUser
+     * @var \Kitpages\ShopBundle\Entity\OrderUser
      */
     private $shippingUser;
     
     /**
-     * @var Kitpages\ShopBundle\Entity\OrderHistory
+     * @var \Kitpages\ShopBundle\Entity\OrderHistory
      */
     private $orderHistoryList;
     
     /**
-     * @var Kitpages\ShopBundle\Entity\OrderLine
+     * @var \Kitpages\ShopBundle\Entity\OrderLine
      */
     private $orderLineList;
     
@@ -347,7 +347,7 @@ class Order
     /**
      * Get orderLineList
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getOrderLineList()
     {

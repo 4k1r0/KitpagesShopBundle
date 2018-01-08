@@ -48,17 +48,18 @@ class OrderHistory
     private $id;
 
     /**
-     * @var Kitpages\ShopBundle\Entity\Order
+     * @var \Kitpages\ShopBundle\Entity\Order
      */
     private $order;
-    
-    
+
+    /**
+     * Invoice constructor.
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }
-
 
     /**
      * Set state
@@ -213,7 +214,7 @@ class OrderHistory
     /**
      * Set order
      *
-     * @param Kitpages\ShopBundle\Entity\Order $order
+     * @param \Kitpages\ShopBundle\Entity\Order $order
      */
     public function setOrder(\Kitpages\ShopBundle\Entity\Order $order)
     {
@@ -223,7 +224,7 @@ class OrderHistory
     /**
      * Get order
      *
-     * @return Kitpages\ShopBundle\Entity\Order
+     * @return \Kitpages\ShopBundle\Entity\Order
      */
     public function getOrder()
     {
