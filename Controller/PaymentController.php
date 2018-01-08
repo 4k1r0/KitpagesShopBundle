@@ -21,7 +21,7 @@ class PaymentController extends Controller
     
     public function completeAction($orderId)
     {
-        if (!$this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')) {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
             throw $this->createAccessDeniedException();
         }
         

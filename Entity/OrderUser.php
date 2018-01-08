@@ -70,12 +70,12 @@ class OrderUser
     private $id;
 
     /**
-     * @var Kitpages\ShopBundle\Entity\Order
+     * @var \Kitpages\ShopBundle\Entity\Order
      */
     private $invoiceOrder;
 
     /**
-     * @var Kitpages\ShopBundle\Entity\Order
+     * @var \Kitpages\ShopBundle\Entity\Order
      */
     private $shippingOrder;
 
@@ -93,7 +93,7 @@ class OrderUser
     /**
      * Get userId
      *
-     * @return integer 
+     * @return integer
      */
     public function getUserId()
     {
@@ -113,7 +113,7 @@ class OrderUser
     /**
      * Get firstName
      *
-     * @return string 
+     * @return string
      */
     public function getFirstName()
     {
@@ -133,7 +133,7 @@ class OrderUser
     /**
      * Get lastName
      *
-     * @return string 
+     * @return string
      */
     public function getLastName()
     {
@@ -153,7 +153,7 @@ class OrderUser
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {
@@ -173,7 +173,7 @@ class OrderUser
     /**
      * Get zipCode
      *
-     * @return string 
+     * @return string
      */
     public function getZipCode()
     {
@@ -193,7 +193,7 @@ class OrderUser
     /**
      * Get city
      *
-     * @return string 
+     * @return string
      */
     public function getCity()
     {
@@ -213,7 +213,7 @@ class OrderUser
     /**
      * Get state
      *
-     * @return string 
+     * @return string
      */
     public function getState()
     {
@@ -233,7 +233,7 @@ class OrderUser
     /**
      * Get countryCode
      *
-     * @return string 
+     * @return string
      */
     public function getCountryCode()
     {
@@ -253,7 +253,7 @@ class OrderUser
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -273,7 +273,7 @@ class OrderUser
     /**
      * Get phone
      *
-     * @return string 
+     * @return string
      */
     public function getPhone()
     {
@@ -293,7 +293,7 @@ class OrderUser
     /**
      * Get createdAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getCreatedAt()
     {
@@ -313,7 +313,7 @@ class OrderUser
     /**
      * Get updatedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getUpdatedAt()
     {
@@ -323,7 +323,7 @@ class OrderUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -333,7 +333,7 @@ class OrderUser
     /**
      * Set invoiceOrder
      *
-     * @param Kitpages\ShopBundle\Entity\Order $invoiceOrder
+     * @param \Kitpages\ShopBundle\Entity\Order $invoiceOrder
      */
     public function setInvoiceOrder(\Kitpages\ShopBundle\Entity\Order $invoiceOrder)
     {
@@ -343,7 +343,7 @@ class OrderUser
     /**
      * Get invoiceOrder
      *
-     * @return Kitpages\ShopBundle\Entity\Order 
+     * @return \Kitpages\ShopBundle\Entity\Order
      */
     public function getInvoiceOrder()
     {
@@ -353,7 +353,7 @@ class OrderUser
     /**
      * Set shippingOrder
      *
-     * @param Kitpages\ShopBundle\Entity\Order $shippingOrder
+     * @param \Kitpages\ShopBundle\Entity\Order $shippingOrder
      */
     public function setShippingOrder(\Kitpages\ShopBundle\Entity\Order $shippingOrder)
     {
@@ -363,7 +363,7 @@ class OrderUser
     /**
      * Get shippingOrder
      *
-     * @return Kitpages\ShopBundle\Entity\Order 
+     * @return \Kitpages\ShopBundle\Entity\Order
      */
     public function getShippingOrder()
     {

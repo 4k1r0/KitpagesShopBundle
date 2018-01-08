@@ -17,7 +17,7 @@ class InvoiceController extends Controller
 {
     public function invoiceDisplayAction($orderId)
     {
-        if (!$this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')) {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
             throw $this->createAccessDeniedException();
         }
         
@@ -32,7 +32,7 @@ class InvoiceController extends Controller
             throw new \Exception("InvoiceController : order is not payed for orderId=".$orderId);
         }
         if (
-            ! $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_ADMIN') &&
+            ! $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') &&
             $order->getUsername() != $this->getUser()->getUsername()
         ) {
             throw $this->createAccessDeniedException();

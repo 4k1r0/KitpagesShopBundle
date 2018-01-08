@@ -30,11 +30,17 @@ class Invoice
     private $id;
 
     /**
-     * @var Kitpages\ShopBundle\Entity\Order
+     * @var \Kitpages\ShopBundle\Entity\Order
      */
     private $order;
-
-
+    
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+    
+    
     /**
      * Set reference
      *
@@ -48,7 +54,7 @@ class Invoice
     /**
      * Get reference
      *
-     * @return string 
+     * @return string
      */
     public function getReference()
     {
@@ -84,7 +90,7 @@ class Invoice
     /**
      * Get createdAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getCreatedAt()
     {
@@ -104,7 +110,7 @@ class Invoice
     /**
      * Get updatedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getUpdatedAt()
     {
@@ -114,7 +120,7 @@ class Invoice
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -124,7 +130,7 @@ class Invoice
     /**
      * Set order
      *
-     * @param Kitpages\ShopBundle\Entity\Order $order
+     * @param \Kitpages\ShopBundle\Entity\Order $order
      */
     public function setOrder(\Kitpages\ShopBundle\Entity\Order $order)
     {
@@ -134,7 +140,7 @@ class Invoice
     /**
      * Get order
      *
-     * @return Kitpages\ShopBundle\Entity\Order 
+     * @return \Kitpages\ShopBundle\Entity\Order
      */
     public function getOrder()
     {

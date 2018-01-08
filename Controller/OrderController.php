@@ -28,7 +28,7 @@ class OrderController extends Controller
         $order->setLocale($request->getLocale());
         
         if(
-            $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')
+            $this->get('security.authorization_checker')->isGranted('ROLE_USER')
         ) {
             $order->setUsername($this->getUser()->getUsername());
         }
@@ -57,7 +57,7 @@ class OrderController extends Controller
     {
 
         if (
-            ! $this->get('security.authorization_checker')->isGranted('ROLE_SHOP_USER')
+            ! $this->get('security.authorization_checker')->isGranted('ROLE_USER')
         ) {
             return $this->forward('KitpagesShopBundle:Order:forbidden', array(
                 'kitpages_target' => $this->generateUrl(

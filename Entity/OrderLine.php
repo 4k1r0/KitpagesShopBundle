@@ -63,6 +63,13 @@ class OrderLine
      * @var Kitpages\ShopBundle\Entity\Order
      */
     private $order;
+    
+    
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
 
 
     /**
@@ -78,7 +85,7 @@ class OrderLine
     /**
      * Get quantity
      *
-     * @return integer 
+     * @return integer
      */
     public function getQuantity()
     {
@@ -98,7 +105,7 @@ class OrderLine
     /**
      * Get cartLineId
      *
-     * @return integer 
+     * @return integer
      */
     public function getCartLineId()
     {
@@ -118,7 +125,7 @@ class OrderLine
     /**
      * Get cartParentLineId
      *
-     * @return integer 
+     * @return integer
      */
     public function getCartParentLineId()
     {
@@ -138,7 +145,7 @@ class OrderLine
     /**
      * Get shopReference
      *
-     * @return string 
+     * @return string
      */
     public function getShopReference()
     {
@@ -158,7 +165,7 @@ class OrderLine
     /**
      * Get shopName
      *
-     * @return string 
+     * @return string
      */
     public function getShopName()
     {
@@ -178,7 +185,7 @@ class OrderLine
     /**
      * Get shopDescription
      *
-     * @return string 
+     * @return string
      */
     public function getShopDescription()
     {
@@ -198,7 +205,7 @@ class OrderLine
     /**
      * Get priceWithoutVat
      *
-     * @return float 
+     * @return float
      */
     public function getPriceWithoutVat()
     {
@@ -218,7 +225,7 @@ class OrderLine
     /**
      * Get priceIncludingVat
      *
-     * @return float 
+     * @return float
      */
     public function getPriceIncludingVat()
     {
@@ -238,7 +245,7 @@ class OrderLine
     /**
      * Get createdAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getCreatedAt()
     {
@@ -258,7 +265,7 @@ class OrderLine
     /**
      * Get updatedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getUpdatedAt()
     {
@@ -268,7 +275,7 @@ class OrderLine
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -278,7 +285,7 @@ class OrderLine
     /**
      * Set order
      *
-     * @param Kitpages\ShopBundle\Entity\Order $order
+     * @param \Kitpages\ShopBundle\Entity\Order $order
      */
     public function setOrder(\Kitpages\ShopBundle\Entity\Order $order)
     {
@@ -288,7 +295,7 @@ class OrderLine
     /**
      * Get order
      *
-     * @return Kitpages\ShopBundle\Entity\Order 
+     * @return \Kitpages\ShopBundle\Entity\Order
      */
     public function getOrder()
     {
@@ -313,7 +320,7 @@ class OrderLine
     /**
      * Get shopData
      *
-     * @return array 
+     * @return array
      */
     public function getShopData()
     {
@@ -343,7 +350,7 @@ class OrderLine
     /**
      * Get cartableClass
      *
-     * @return string 
+     * @return string
      */
     public function getCartableClass()
     {
@@ -363,7 +370,7 @@ class OrderLine
     /**
      * Get shopCategory
      *
-     * @return string 
+     * @return string
      */
     public function getShopCategory()
     {

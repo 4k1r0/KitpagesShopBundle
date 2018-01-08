@@ -51,6 +51,13 @@ class OrderHistory
      * @var Kitpages\ShopBundle\Entity\Order
      */
     private $order;
+    
+    
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
 
 
     /**
@@ -66,7 +73,7 @@ class OrderHistory
     /**
      * Get state
      *
-     * @return string 
+     * @return string
      */
     public function getState()
     {
@@ -106,7 +113,7 @@ class OrderHistory
     /**
      * Get note
      *
-     * @return string 
+     * @return string
      */
     public function getNote()
     {
@@ -126,7 +133,7 @@ class OrderHistory
     /**
      * Get priceWithoutVat
      *
-     * @return float 
+     * @return float
      */
     public function getPriceWithoutVat()
     {
@@ -146,7 +153,7 @@ class OrderHistory
     /**
      * Get priceIncludingVat
      *
-     * @return float 
+     * @return float
      */
     public function getPriceIncludingVat()
     {
@@ -196,7 +203,7 @@ class OrderHistory
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -216,7 +223,7 @@ class OrderHistory
     /**
      * Get order
      *
-     * @return Kitpages\ShopBundle\Entity\Order 
+     * @return Kitpages\ShopBundle\Entity\Order
      */
     public function getOrder()
     {
@@ -241,7 +248,7 @@ class OrderHistory
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
     public function getUsername()
     {
