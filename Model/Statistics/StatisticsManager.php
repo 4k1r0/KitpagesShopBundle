@@ -42,31 +42,9 @@ class StatisticsManager
         $queryJoinList = array();
         $queryWhereList = array();
 
-        foreach($parameterSelectList as $parameterSelect) {
-            if($parameterSelect == 'shopCategory') {
-                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
-                $querySelectList[] = "ol.shop_category as shopCategory";
-            }
-            if($parameterSelect == 'shopName') {
-                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
-                $querySelectList[] = "ol.shop_name as shopName";
-            }
-            if($parameterSelect == 'shopReferenceQantity') {
-                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
-                $querySelectList[] = "SUM(ol.quantity) as shopReferenceQantity";
-            }
-            if($parameterSelect == 'orderPriceWithoutVatTotal') {
-                $querySelectList[] = "SUM(o.price_without_vat) orderPriceWithoutVatTotal";
-            }
-            if($parameterSelect == 'orderLinePriceWithoutVatTotal') {
-                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
-                $querySelectList[] = "SUM(ol.price_without_vat) orderLinePriceWithoutVatTotal";
-            }
-            if($parameterSelect == 'priceIncludingVatTotal') {
-                $querySelectList[] = "SUM(o.price_including_vat) priceTotalIncludingVat";
-            }
-        }
-
+        // Have to be before foreach on $parameterSelectList
+        // Because of MySQL ONLY_FULL_GROUP_BY mode
+        // Every non aggregated column must be in GROUP BY clause
         foreach($parameterGroupByList as $parameterGroupBy => $valueGroupBy) {
             if($parameterGroupBy == 'stateDate') {
                 $querySelectList[] = "DATE_FORMAT(o.state_date, '".$valueGroupBy."') as stateDate";
@@ -81,6 +59,33 @@ class StatisticsManager
                 $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
                 $querySelectList[] = "ol.shop_category as shopCategory";
                 $queryGroupByList[] = "shopCategory";
+            }
+        }
+        
+        foreach($parameterSelectList as $parameterSelect) {
+            if($parameterSelect == 'shopCategory') {
+                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
+                $querySelectList[] = "ol.shop_category as shopCategory";
+                $queryGroupByList[] = "shopCategory";
+            }
+            if($parameterSelect == 'shopName') {
+                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
+                $querySelectList[] = "ol.shop_name as shopName";
+                $queryGroupByList[] = "shopName";
+            }
+            if($parameterSelect == 'shopReferenceQuantity') {
+                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
+                $querySelectList[] = "SUM(ol.quantity) as shopReferenceQuantity";
+            }
+            if($parameterSelect == 'orderPriceWithoutVatTotal') {
+                $querySelectList[] = "SUM(o.price_without_vat) orderPriceWithoutVatTotal";
+            }
+            if($parameterSelect == 'orderLinePriceWithoutVatTotal') {
+                $queryJoinList['orderLine'] = " JOIN shop_order_line ol ON ol.order_id = o.id ";
+                $querySelectList[] = "SUM(ol.price_without_vat) orderLinePriceWithoutVatTotal";
+            }
+            if($parameterSelect == 'priceIncludingVatTotal') {
+                $querySelectList[] = "SUM(o.price_including_vat) priceTotalIncludingVat";
             }
         }
 

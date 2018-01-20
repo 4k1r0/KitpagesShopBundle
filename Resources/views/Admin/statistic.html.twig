@@ -2,7 +2,7 @@
 
 {% block kitpages_shop_body_admin %}
 <div class="kit-shop-admin-filter">
-    <form action="{{ path('KitpagesShopBundle_admin_statistics' ) }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('KitpagesShopBundle_admin_statistics' ) }}" method="post">
         {{ form_widget(form) }}
         <br />
         <input type="submit" />

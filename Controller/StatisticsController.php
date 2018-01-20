@@ -125,14 +125,14 @@ class StatisticsController extends Controller
         $querySelect = array(
             'orderLinePriceWithoutVatTotal' => 'orderLinePriceWithoutVatTotal',
             'shopName' => 'shopName',
-            'shopReferenceQantity' => 'shopReferenceQantity'
+            'shopReferenceQuantity' => 'shopReferenceQuantity'
         );
         $queryWhere = array(
             'stateDateStart' => $dateStart,
             'stateDateEnd' => $dateEnd
         );
         $queryGroupBy = array(
-            'shopReference' => 'shopReference'
+            'shopReference' => 'shopReference',
         );
         $queryOrderBy = array(
             'orderLinePriceWithoutVatTotal' => 'DESC'
@@ -152,12 +152,12 @@ class StatisticsController extends Controller
             $dataStatisticList['salesTopTen'][] = array(
                 'product' => $data['shopName'],
                 'total price without vat' => $data['orderLinePriceWithoutVatTotal'],
-                'quantity' => $data['shopReferenceQantity']
+                'quantity' => $data['shopReferenceQuantity']
             );
             $i++;
             if ($nbProductDisplay < $i) {
                 $other['total price without vat'] = $other['total price without vat'] + $data['orderLinePriceWithoutVatTotal'];
-                $other['quantity'] = $other['quantity'] + $data['shopReferenceQantity'];
+                $other['quantity'] = $other['quantity'] + $data['shopReferenceQuantity'];
             }
         }
 
