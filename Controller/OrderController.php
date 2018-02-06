@@ -20,40 +20,11 @@ class OrderController extends Controller
 {
     public function createAction(Request $request)
     {
-        /** @var \Marketiot\UserBundle\Entity\User $user */
-        $user = $this->getUser();
-        
         $orderManager = $this->get('kitpages_shop.orderManager');
         $logger = $this->get('logger');
-        $logger->debug("create order, user=".$user->getUsername());
-        
-        /** @var \Marketiot\CustomerBundle\Entity\Customer $customer */
-        $customer = $user->getCustomer();
-        
-        $orderUser = new OrderUser();
-        $orderUser
-            ->setAddress($customer->getAddress())
-            ->setZipCode($customer->getZipcode())
-            ->setCity($customer->getCity())
-            ->setState($customer->getState())
-            ->setCountryCode($customer->getCountry())
-            ->setEmail($user->getEmail())
-            ->setPhone($customer->getPhone())
-            ->setFirstName($customer->getFirstname())
-            ->setLastName($customer->getLastname())
-            ->setUserId($user->getId())
-            ;
-        
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($orderUser);
-        $em->flush();
-        
+        $logger->debug("create order, user=".$this->getUser()->getUsername());
         // create order from cart
-        $order = $orderManager->createOrder(
-            $this->getUser()->getUsername(),
-            $orderUser,
-            $orderUser
-        );
+        $order = $orderManager->createOrder();
         $order->setLocale($request->getLocale());
         
         if(
@@ -62,6 +33,7 @@ class OrderController extends Controller
             $order->setUsername($this->getUser()->getUsername());
         }
         // persist order
+        $em = $this->getDoctrine()->getManager();
         $em->persist($order);
         $em->flush();
 
