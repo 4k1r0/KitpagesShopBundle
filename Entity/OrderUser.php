@@ -78,298 +78,295 @@ class OrderUser
      * @var \Kitpages\ShopBundle\Entity\Order
      */
     private $shippingOrder;
-    
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
-    }
-    
+
+
     /**
-     * @return int
+     * Set userId
+     *
+     * @param integer $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return integer
      */
     public function getUserId()
     {
         return $this->userId;
     }
-    
+
     /**
-     * @param int $userId
+     * Set firstName
      *
-     * @return OrderUser
+     * @param string $firstName
      */
-    public function setUserId( int $userId ): OrderUser
+    public function setFirstName($firstName)
     {
-        $this->userId = $userId;
-        
-        return $this;
+        $this->firstName = $firstName;
     }
-    
+
     /**
+     * Get firstName
+     *
      * @return string
      */
     public function getFirstName()
     {
         return $this->firstName;
     }
-    
+
     /**
-     * @param string $firstName
+     * Set lastName
      *
-     * @return OrderUser
+     * @param string $lastName
      */
-    public function setFirstName( $firstName ): OrderUser
+    public function setLastName($lastName)
     {
-        $this->firstName = $firstName;
-        
-        return $this;
+        $this->lastName = $lastName;
     }
-    
+
     /**
+     * Get lastName
+     *
      * @return string
      */
     public function getLastName()
     {
         return $this->lastName;
     }
-    
+
     /**
-     * @param string $lastName
+     * Set address
      *
-     * @return OrderUser
+     * @param string $address
      */
-    public function setLastName( $lastName ): OrderUser
+    public function setAddress($address)
     {
-        $this->lastName = $lastName;
-        
-        return $this;
+        $this->address = $address;
     }
-    
+
     /**
+     * Get address
+     *
      * @return string
      */
     public function getAddress()
     {
         return $this->address;
     }
-    
+
     /**
-     * @param string $address
+     * Set zipCode
      *
-     * @return OrderUser
+     * @param string $zipCode
      */
-    public function setAddress( $address ): OrderUser
+    public function setZipCode($zipCode)
     {
-        $this->address = $address;
-        
-        return $this;
+        $this->zipCode = $zipCode;
     }
-    
+
     /**
+     * Get zipCode
+     *
      * @return string
      */
     public function getZipCode()
     {
         return $this->zipCode;
     }
-    
+
     /**
-     * @param string $zipCode
+     * Set city
      *
-     * @return OrderUser
+     * @param string $city
      */
-    public function setZipCode( $zipCode ): OrderUser
+    public function setCity($city)
     {
-        $this->zipCode = $zipCode;
-        
-        return $this;
+        $this->city = $city;
     }
-    
+
     /**
+     * Get city
+     *
      * @return string
      */
     public function getCity()
     {
         return $this->city;
     }
-    
+
     /**
-     * @param string $city
+     * Set state
      *
-     * @return OrderUser
+     * @param string $state
      */
-    public function setCity( $city ): OrderUser
+    public function setState($state)
     {
-        $this->city = $city;
-        
-        return $this;
+        $this->state = $state;
     }
-    
+
     /**
+     * Get state
+     *
      * @return string
      */
     public function getState()
     {
         return $this->state;
     }
-    
+
     /**
-     * @param string $state
+     * Set countryCode
      *
-     * @return OrderUser
+     * @param string $countryCode
      */
-    public function setState( $state ): OrderUser
+    public function setCountryCode($countryCode)
     {
-        $this->state = $state;
-        
-        return $this;
+        $this->countryCode = $countryCode;
     }
-    
+
     /**
+     * Get countryCode
+     *
      * @return string
      */
     public function getCountryCode()
     {
         return $this->countryCode;
     }
-    
+
     /**
-     * @param string $countryCode
+     * Set email
      *
-     * @return OrderUser
+     * @param string $email
      */
-    public function setCountryCode( $countryCode ): OrderUser
+    public function setEmail($email)
     {
-        $this->countryCode = $countryCode;
-        
-        return $this;
+        $this->email = $email;
     }
-    
+
     /**
+     * Get email
+     *
      * @return string
      */
     public function getEmail()
     {
         return $this->email;
     }
-    
+
     /**
-     * @param string $email
+     * Set phone
      *
-     * @return OrderUser
+     * @param string $phone
      */
-    public function setEmail( $email ): OrderUser
+    public function setPhone($phone)
     {
-        $this->email = $email;
-        
-        return $this;
+        $this->phone = $phone;
     }
-    
+
     /**
+     * Get phone
+     *
      * @return string
      */
     public function getPhone()
     {
         return $this->phone;
     }
-    
+
     /**
-     * @param string $phone
+     * Set createdAt
      *
-     * @return OrderUser
+     * @param datetime $createdAt
      */
-    public function setPhone( $phone ): OrderUser
+    public function setCreatedAt($createdAt)
     {
-        $this->phone = $phone;
-        
-        return $this;
+        $this->createdAt = $createdAt;
     }
-    
+
     /**
-     * @return \Datetime
+     * Get createdAt
+     *
+     * @return datetime
      */
-    public function getCreatedAt(): \Datetime
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
-    
+
     /**
-     * @param \Datetime $createdAt
+     * Set updatedAt
      *
-     * @return OrderUser
+     * @param datetime $updatedAt
      */
-    public function setCreatedAt( $createdAt ): OrderUser
+    public function setUpdatedAt($updatedAt)
     {
-        $this->createdAt = $createdAt;
-        
-        return $this;
+        $this->updatedAt = $updatedAt;
     }
-    
+
     /**
-     * @return \Datetime
+     * Get updatedAt
+     *
+     * @return datetime
      */
-    public function getUpdatedAt(): \Datetime
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
-    
+
     /**
-     * @param \Datetime $updatedAt
+     * Get id
      *
-     * @return OrderUser
-     */
-    public function setUpdatedAt( $updatedAt ): OrderUser
-    {
-        $this->updatedAt = $updatedAt;
-        
-        return $this;
-    }
-    
-    /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-    
+
     /**
+     * Set invoiceOrder
+     *
+     * @param \Kitpages\ShopBundle\Entity\Order $invoiceOrder
+     */
+    public function setInvoiceOrder(\Kitpages\ShopBundle\Entity\Order $invoiceOrder)
+    {
+        $this->invoiceOrder = $invoiceOrder;
+    }
+
+    /**
+     * Get invoiceOrder
+     *
      * @return \Kitpages\ShopBundle\Entity\Order
      */
-    public function getInvoiceOrder(): \Kitpages\ShopBundle\Entity\Order
+    public function getInvoiceOrder()
     {
         return $this->invoiceOrder;
     }
-    
+
     /**
-     * @param \Kitpages\ShopBundle\Entity\Order $invoiceOrder
+     * Set shippingOrder
      *
-     * @return OrderUser
-     */
-    public function setInvoiceOrder( \Kitpages\ShopBundle\Entity\Order $invoiceOrder ): OrderUser
-    {
-        $this->invoiceOrder = $invoiceOrder;
-        
-        return $this;
-    }
-    
-    /**
-     * @return \Kitpages\ShopBundle\Entity\Order
-     */
-    public function getShippingOrder(): \Kitpages\ShopBundle\Entity\Order
-    {
-        return $this->shippingOrder;
-    }
-    
-    /**
      * @param \Kitpages\ShopBundle\Entity\Order $shippingOrder
-     *
-     * @return OrderUser
      */
-    public function setShippingOrder( \Kitpages\ShopBundle\Entity\Order $shippingOrder ): OrderUser
+    public function setShippingOrder(\Kitpages\ShopBundle\Entity\Order $shippingOrder)
     {
         $this->shippingOrder = $shippingOrder;
-        
-        return $this;
+    }
+
+    /**
+     * Get shippingOrder
+     *
+     * @return \Kitpages\ShopBundle\Entity\Order
+     */
+    public function getShippingOrder()
+    {
+        return $this->shippingOrder;
     }
 }

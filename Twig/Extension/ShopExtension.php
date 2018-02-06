@@ -1,14 +1,14 @@
 <?php
 namespace Kitpages\ShopBundle\Twig\Extension;
 
-use Symfony\Component\Intl\Intl;
+use Symfony\Component\Locale\Locale;
 
 class ShopExtension extends \Twig_Extension
 {
 
     public static function countryName($value, $locale)
     {
-        $countryList =Intl::getRegionBundle()->getCountryNames();
+        $countryList = \Symfony\Component\Locale\Locale::getDisplayCountries($locale);
         if (!in_array($value, $countryList)) {
             return $countryList[$value];
         } else {
