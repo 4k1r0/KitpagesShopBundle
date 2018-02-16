@@ -33,7 +33,7 @@ class InvoiceController extends Controller
         }
         if (
             ! $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') &&
-            $order->getUsername() != $this->getUser()->getUsername()
+            $order->getInvoiceUser()->getUserId() != $this->getUser()->getId()
         ) {
             throw $this->createAccessDeniedException();
         }
