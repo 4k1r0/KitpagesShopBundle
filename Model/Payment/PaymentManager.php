@@ -27,12 +27,17 @@ class PaymentManager
     {
         foreach($this->paymentList as $paymentKey => $paymentParameterList) {
             $paymentData[$paymentKey] = array(
-                'return_url' => $this->router->generate($paymentParameterList['return_url'], array(
-                    'orderId' => $order->getId(),
-                ), UrlGeneratorInterface::ABSOLUTE_URL),
-                'cancel_url' => $this->router->generate($paymentParameterList['cancel_url'], array(
-                    'orderId' => $order->getId(),
-                ), UrlGeneratorInterface::ABSOLUTE_URL)
+                'return_url' => $this->router->generate(
+					$paymentParameterList['return_url'], 
+					array('orderId' => $order->getId(),), 
+					UrlGeneratorInterface::ABSOLUTE_URL
+				),
+                'cancel_url' => $this->router->generate(
+					$paymentParameterList['cancel_url'], 
+					array('orderId' => $order->getId(),), 
+					UrlGeneratorInterface::ABSOLUTE_URL
+				),
+                'useraction' => 'commit',
             );
         }
 
