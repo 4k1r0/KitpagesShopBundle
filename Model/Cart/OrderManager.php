@@ -78,6 +78,7 @@ class OrderManager
         $order = new Order();
         $this->setOrderPrice($order, $price);
         $order->setRandomKey($this->getNewRandomKey());
+        $order->setUsername($username);
 
         // create first orderHistory
         $orderHistory = new OrderHistory();
